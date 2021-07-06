@@ -171,7 +171,6 @@ input {
     margin: 1em;
     width: 100%;
     box-sizing: border-box;
-    text-transform: lowercase;
     border-radius: 0;
     border: var(--General)solid.2em;
     outline: none !important;
@@ -809,6 +808,13 @@ footer {
 /*****************************************************************/
 
 @media only screen and (max-width: 600px) {
+
+    .percent,
+    .fill {
+        display: none;
+        visibility: hidden;
+    }
+
     nav {
         width: 100%;
         height: auto;
