@@ -818,8 +818,7 @@ footer {
     }
 
     nav {
-        display: none;
-        visibility: hidden;
+        position: fixed;
 
         #acerca_de_mi,
         #portafolio,

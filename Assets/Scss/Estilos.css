@@ -960,8 +960,7 @@ footer .arriba:not(.github) {
     padding: 5em 0 5em 0;
   }
   nav {
-    display: none;
-    visibility: hidden;
+    position: fixed;
   }
   nav #acerca_de_mi,
   nav #portafolio,
