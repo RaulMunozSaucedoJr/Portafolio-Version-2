@@ -65,14 +65,6 @@
             element.appendChild(textContainer.cloneNode(true));
         });
         /**********************************************************************/
-        const circleText = document.querySelector("svg");
-        window.addEventListener("scroll", () => {
-            const scrolled = window.pageYOffset;
-            const rotate = scrolled * 0.8;
-            circleText.style.transform = `rotate(${rotate}deg)`;
-        });
-
-        /**********************************************************************/
         AOS.init();
         /**********************************************************************/
 
