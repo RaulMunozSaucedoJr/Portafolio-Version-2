@@ -77,7 +77,6 @@ input[type="tel"] {
     box-sizing: border-box;
     padding: .5em;
     margin: .5em;
-    outline: none !important;
     appearance: none;
 }
 
@@ -146,12 +145,16 @@ nav {
         background: var(--Primario);
         border: var(--General)solid 0.2em;
         color: var(--Background-Color);
-        transition: .5s;
+        transition: ease-in 1s;
         border-left: transparent;
         border-right: transparent;
         border-top: transparent;
         position: sticky;
     }
+}
+
+.mb-nav {
+    display: none;
 }
 
 .invalid-feedback {
@@ -809,10 +812,211 @@ footer {
 
 @media only screen and (max-width: 600px) {
 
+    body {
+        padding: 5em 0 5em 0;
+    }
+
+    nav {
+        display: block;
+
+        #acerca_de_mi,
+        #portafolio,
+        #testimonios,
+        #contacto {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+
+    .mb-nav {
+        display: flex;
+        width: 100%;
+        height: 10%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--Background-Color);
+        z-index: 9;
+        overflow: hidden;
+    }
+
+    .mb-nav-item {
+        display: grid;
+        place-content: center;
+        flex: 25%;
+        padding: 1rem 0;
+    }
+
+    .mb-nav-item i,
+    .mb-nav-item a {
+        font-size: 2rem;
+        color: var(--General);
+        z-index: 2;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+            color: var(--Secundario);
+        }
+    }
+
+    .mb-nav-item.active i,
+    .mb-nav-item.active a {
+        color: var(--Secundario);
+    }
+
+    .mb-move-item {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        height: 100%;
+        background-color: var(--Primario);
+        transition: 0.5s ease-in-out;
+    }
+
     .percent,
     .fill {
         display: none;
         visibility: hidden;
+    }
+
+    .contenedor_saludo,
+    .contenedor_about_me,
+    .contenedor_separador_portafolio,
+    .contenedor_portafolio,
+    .contenedor_testimonios_cartas_recomendacion,
+    .contenedor_formulario_de_contacto {
+        overflow-x: hidden;
+    }
+
+    .contenedor_about_me {
+        display: grid;
+        place-content: center;
+
+        h1 {
+            font-family: var(--Font-Secundaria);
+            font-size: var(--SubSubtitulos);
+            color: var(--Primario);
+            text-decoration: none;
+            font-weight: bolder;
+            text-align: center;
+            letter-spacing: .7em;
+            margin: 2em 0 2em 0;
+            padding: 2em 0 2em 0;
+
+            &:first-letter {
+                font-family: var(--Extra-Grande);
+                font-size: var(--Titulos);
+                font-weight: bolder;
+                color: var(--Secundario);
+            }
+
+            &:hover {
+                color: var(--Secundario);
+                text-decoration: underline;
+                transition: ease .5s;
+            }
+
+        }
+
+        img {
+            right: 0;
+            width: 50%;
+            height: auto;
+            pointer-events: none;
+        }
+
+        .wrap-image {
+            right: 0;
+
+            &::before,
+            &::after {
+                content: "";
+                width: 50%;
+                height: 50%;
+                position: absolute;
+                z-index: -1;
+                border: var(--General)solid.2em;
+                transition: all .25s ease-out;
+            }
+
+            &::before {
+                background-color: var(--Secundario);
+                top: 0.469em;
+                left: 0.469em;
+            }
+
+            &::after {
+                bottom: 0.469em;
+                right: 0.469em;
+            }
+
+            &:hover {
+                &::before {
+                    top: -0.469em;
+                    left: -0.469em;
+                }
+
+                &::after {
+                    bottom: -0.469em;
+                    right: -0.469em;
+                }
+            }
+        }
+
+        p {
+            font-family: var(--Chica);
+            letter-spacing: .1;
+        }
+    }
+
+    .contenedor_separador_portafolio {
+        h1 {
+            font-size: var(--Subtitulos);
+            letter-spacing: .2em;
+        }
+    }
+
+    .contenedor_testimonios_cartas_recomendacion {
+
+        .rolling-text {
+            display: inline-block;
+            font-family: var(--Font-Secundaria);
+            $font-size: 1.2em;
+            font-size: $font-size;
+            line-height: $font-size * 1.5;
+            letter-spacing: $font-size / 2;
+            height: $font-size * 1.5;
+            text-decoration: none;
+            overflow: hidden;
+            color: var(--General);
+            margin: 1em 0 1em 0;
+
+            &:hover {
+                .letter {
+                    transform: translateY(-100%);
+                }
+            }
+
+            .block:last-child {
+                color: var(--Secundario);
+            }
+
+            .letter {
+                display: inline-block;
+                transition: transform $duration $easing;
+            }
+        }
+
+        @for $i from 0 through 20 {
+            .letter:nth-child(#{$i + 1}) {
+                transition-delay: $delay * $i;
+            }
+        }
+
+        h1 {
+            font-size: var(--ExtraChica);
+        }
     }
 
     nav {
@@ -852,6 +1056,64 @@ footer {
     .contenedor_separador_portafolio {
         h1 {
             letter-spacing: .1rem;
+        }
+    }
+
+    button.enviar {
+        position: relative;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        font-family: var(--Font-Secundaria);
+        font-size: var(--Tamano-General);
+        font-weight: bolder;
+        margin: .2em;
+        font-weight: bold;
+        letter-spacing: 1em;
+
+        &.efecto_doble {
+
+            &.efecto_doble::after,
+            &.efecto_doble::before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 30%;
+                height: 30%;
+                border: .2em solid;
+                transition: all .7s ease-in;
+                border-radius: 0;
+            }
+
+            &.efecto_doble::after {
+                bottom: 0;
+                right: 0;
+                border-top-color: transparent;
+                border-left-color: transparent;
+                border-bottom-color: var(--Secundario);
+                border-right-color: var(--Secundario);
+            }
+
+            &.efecto_doble::before {
+                top: 0;
+                left: 0;
+                border-bottom-color: transparent;
+                border-right-color: transparent;
+                border-top-color: var(--Secundario);
+                border-left-color: var(--Secundario);
+            }
+
+            &.efecto_doble:hover:after,
+            &.efecto_doble:hover:before {
+                border-bottom-color: var(--General);
+                border-right-color: var(--General);
+                border-top-color: var(--General);
+                border-left-color: var(--General);
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }

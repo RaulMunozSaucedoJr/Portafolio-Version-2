@@ -103,7 +103,6 @@ input[type="tel"] {
           box-sizing: border-box;
   padding: .5em;
   margin: .5em;
-  outline: none !important;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -179,13 +178,17 @@ nav.activa {
   background: var(--Primario);
   border: var(--General) solid 0.2em;
   color: var(--Background-Color);
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: ease-in 1s;
+  transition: ease-in 1s;
   border-left: transparent;
   border-right: transparent;
   border-top: transparent;
   position: -webkit-sticky;
   position: sticky;
+}
+
+.mb-nav {
+  display: none;
 }
 
 .invalid-feedback {
@@ -952,10 +955,267 @@ footer .arriba:not(.github) {
 
 /*****************************************************************/
 @media only screen and (max-width: 600px) {
+  body {
+    padding: 5em 0 5em 0;
+  }
+  nav {
+    display: block;
+  }
+  nav #acerca_de_mi,
+  nav #portafolio,
+  nav #testimonios,
+  nav #contacto {
+    display: none;
+    visibility: hidden;
+  }
+  .mb-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 10%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: var(--Background-Color);
+    z-index: 9;
+    overflow: hidden;
+  }
+  .mb-nav-item {
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+    -webkit-box-flex: 25%;
+        -ms-flex: 25%;
+            flex: 25%;
+    padding: 1rem 0;
+  }
+  .mb-nav-item i,
+  .mb-nav-item a {
+    font-size: 2rem;
+    color: var(--General);
+    z-index: 2;
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+  }
+  .mb-nav-item i:hover,
+  .mb-nav-item a:hover {
+    color: var(--Secundario);
+  }
+  .mb-nav-item.active i,
+  .mb-nav-item.active a {
+    color: var(--Secundario);
+  }
+  .mb-move-item {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 100%;
+    background-color: var(--Primario);
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+  }
   .percent,
   .fill {
     display: none;
     visibility: hidden;
+  }
+  .contenedor_saludo,
+  .contenedor_about_me,
+  .contenedor_separador_portafolio,
+  .contenedor_portafolio,
+  .contenedor_testimonios_cartas_recomendacion,
+  .contenedor_formulario_de_contacto {
+    overflow-x: hidden;
+  }
+  .contenedor_about_me {
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+  }
+  .contenedor_about_me h1 {
+    font-family: var(--Font-Secundaria);
+    font-size: var(--SubSubtitulos);
+    color: var(--Primario);
+    text-decoration: none;
+    font-weight: bolder;
+    text-align: center;
+    letter-spacing: .7em;
+    margin: 2em 0 2em 0;
+    padding: 2em 0 2em 0;
+  }
+  .contenedor_about_me h1:first-letter {
+    font-family: var(--Extra-Grande);
+    font-size: var(--Titulos);
+    font-weight: bolder;
+    color: var(--Secundario);
+  }
+  .contenedor_about_me h1:hover {
+    color: var(--Secundario);
+    text-decoration: underline;
+    -webkit-transition: ease .5s;
+    transition: ease .5s;
+  }
+  .contenedor_about_me img {
+    right: 0;
+    width: 50%;
+    height: auto;
+    pointer-events: none;
+  }
+  .contenedor_about_me .wrap-image {
+    right: 0;
+  }
+  .contenedor_about_me .wrap-image::before, .contenedor_about_me .wrap-image::after {
+    content: "";
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    z-index: -1;
+    border: var(--General) solid 0.2em;
+    -webkit-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+  }
+  .contenedor_about_me .wrap-image::before {
+    background-color: var(--Secundario);
+    top: 0.469em;
+    left: 0.469em;
+  }
+  .contenedor_about_me .wrap-image::after {
+    bottom: 0.469em;
+    right: 0.469em;
+  }
+  .contenedor_about_me .wrap-image:hover::before {
+    top: -0.469em;
+    left: -0.469em;
+  }
+  .contenedor_about_me .wrap-image:hover::after {
+    bottom: -0.469em;
+    right: -0.469em;
+  }
+  .contenedor_about_me p {
+    font-family: var(--Chica);
+    letter-spacing: .1;
+  }
+  .contenedor_separador_portafolio h1 {
+    font-size: var(--Subtitulos);
+    letter-spacing: .2em;
+  }
+  .contenedor_testimonios_cartas_recomendacion .rolling-text {
+    display: inline-block;
+    font-family: var(--Font-Secundaria);
+    font-size: 1.2em;
+    line-height: 1.8em;
+    letter-spacing: 0.6em;
+    height: 1.8em;
+    text-decoration: none;
+    overflow: hidden;
+    color: var(--General);
+    margin: 1em 0 1em 0;
+  }
+  .contenedor_testimonios_cartas_recomendacion .rolling-text:hover .letter {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  .contenedor_testimonios_cartas_recomendacion .rolling-text .block:last-child {
+    color: var(--Secundario);
+  }
+  .contenedor_testimonios_cartas_recomendacion .rolling-text .letter {
+    display: inline-block;
+    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: -webkit-transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1), -webkit-transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(1) {
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(2) {
+    -webkit-transition-delay: 0.015s;
+            transition-delay: 0.015s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(3) {
+    -webkit-transition-delay: 0.03s;
+            transition-delay: 0.03s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(4) {
+    -webkit-transition-delay: 0.045s;
+            transition-delay: 0.045s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(5) {
+    -webkit-transition-delay: 0.06s;
+            transition-delay: 0.06s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(6) {
+    -webkit-transition-delay: 0.075s;
+            transition-delay: 0.075s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(7) {
+    -webkit-transition-delay: 0.09s;
+            transition-delay: 0.09s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(8) {
+    -webkit-transition-delay: 0.105s;
+            transition-delay: 0.105s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(9) {
+    -webkit-transition-delay: 0.12s;
+            transition-delay: 0.12s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(10) {
+    -webkit-transition-delay: 0.135s;
+            transition-delay: 0.135s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(11) {
+    -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(12) {
+    -webkit-transition-delay: 0.165s;
+            transition-delay: 0.165s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(13) {
+    -webkit-transition-delay: 0.18s;
+            transition-delay: 0.18s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(14) {
+    -webkit-transition-delay: 0.195s;
+            transition-delay: 0.195s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(15) {
+    -webkit-transition-delay: 0.21s;
+            transition-delay: 0.21s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(16) {
+    -webkit-transition-delay: 0.225s;
+            transition-delay: 0.225s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(17) {
+    -webkit-transition-delay: 0.24s;
+            transition-delay: 0.24s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(18) {
+    -webkit-transition-delay: 0.255s;
+            transition-delay: 0.255s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(19) {
+    -webkit-transition-delay: 0.27s;
+            transition-delay: 0.27s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(20) {
+    -webkit-transition-delay: 0.285s;
+            transition-delay: 0.285s;
+  }
+  .contenedor_testimonios_cartas_recomendacion .letter:nth-child(21) {
+    -webkit-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+  }
+  .contenedor_testimonios_cartas_recomendacion h1 {
+    font-size: var(--ExtraChica);
   }
   nav {
     width: 100%;
@@ -994,6 +1254,55 @@ footer .arriba:not(.github) {
   }
   .contenedor_separador_portafolio h1 {
     letter-spacing: .1rem;
+  }
+  button.enviar {
+    position: relative;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    font-family: var(--Font-Secundaria);
+    font-size: var(--Tamano-General);
+    font-weight: bolder;
+    margin: .2em;
+    font-weight: bold;
+    letter-spacing: 1em;
+  }
+  button.enviar.efecto_doble.efecto_doble::after, button.enviar.efecto_doble.efecto_doble::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    border: .2em solid;
+    -webkit-transition: all .7s ease-in;
+    transition: all .7s ease-in;
+    border-radius: 0;
+  }
+  button.enviar.efecto_doble.efecto_doble::after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: var(--Secundario);
+    border-right-color: var(--Secundario);
+  }
+  button.enviar.efecto_doble.efecto_doble::before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: var(--Secundario);
+    border-left-color: var(--Secundario);
+  }
+  button.enviar.efecto_doble.efecto_doble:hover:after, button.enviar.efecto_doble.efecto_doble:hover:before {
+    border-bottom-color: var(--General);
+    border-right-color: var(--General);
+    border-top-color: var(--General);
+    border-left-color: var(--General);
+    width: 100%;
+    height: 100%;
   }
 }
 
