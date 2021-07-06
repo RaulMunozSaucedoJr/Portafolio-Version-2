@@ -813,23 +813,6 @@ footer {
 
 @media only screen and (max-width: 600px) {
 
-    body {
-        padding: 5em 0 5em 0;
-    }
-
-    nav {
-        position: fixed;
-
-        #acerca_de_mi,
-        #portafolio,
-        #testimonios,
-        #contacto {
-            display: none;
-            visibility: hidden;
-        }
-    }
-
-
     .mb-nav {
         display: flex;
         width: 100%;
