@@ -959,7 +959,8 @@ footer .arriba:not(.github) {
     padding: 5em 0 5em 0;
   }
   nav {
-    display: block;
+    display: none;
+    visibility: hidden;
   }
   nav #acerca_de_mi,
   nav #portafolio,
@@ -1216,45 +1217,6 @@ footer .arriba:not(.github) {
   }
   .contenedor_testimonios_cartas_recomendacion h1 {
     font-size: var(--ExtraChica);
-  }
-  nav {
-    width: 100%;
-    height: auto;
-    top: 0;
-    background-color: transparent;
-    border: var(--General) solid 0.2rem;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    text-align: center;
-    -webkit-transition: .5s;
-    transition: .5s;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin: 0 0 2em 0;
-  }
-  nav a {
-    font-family: var(--Font-Secundaria);
-    font-size: var(--Tamano-General);
-    color: var(--General);
-    font-weight: lighter;
-    letter-spacing: .2em;
-  }
-  nav.activa {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    padding: 1em;
-    z-index: 1;
-    background: var(--Primario);
-    border: var(--General) solid 0.4em;
-    color: var(--Background-Color);
-    -webkit-transition: .5s;
-    transition: .5s;
-    border-left: transparent;
-    border-right: transparent;
-    border-top: transparent;
   }
   .contenedor_separador_portafolio h1 {
     letter-spacing: .1rem;

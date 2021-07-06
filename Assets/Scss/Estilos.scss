@@ -817,7 +817,8 @@ footer {
     }
 
     nav {
-        display: block;
+        display: none;
+        visibility: hidden;
 
         #acerca_de_mi,
         #portafolio,
@@ -1016,44 +1017,6 @@ footer {
 
         h1 {
             font-size: var(--ExtraChica);
-        }
-    }
-
-    nav {
-        width: 100%;
-        height: auto;
-        top: 0;
-        background-color: transparent;
-        border: var(--General)solid 0.2rem;
-        border-top: transparent;
-        border-left: transparent;
-        border-right: transparent;
-        text-align: center;
-        transition: .5s;
-        justify-content: center;
-        margin: 0 0 2em 0;
-
-        a {
-            font-family: var(--Font-Secundaria);
-            font-size: var(--Tamano-General);
-            color: var(--General);
-            font-weight: lighter;
-            letter-spacing: .2em;
-        }
-
-        &.activa {
-            width: 100%;
-            height: auto;
-            text-align: center;
-            padding: 1em;
-            z-index: 1;
-            background: var(--Primario);
-            border: var(--General)solid 0.4em;
-            color: var(--Background-Color);
-            transition: .5s;
-            border-left: transparent;
-            border-right: transparent;
-            border-top: transparent;
         }
     }
 
