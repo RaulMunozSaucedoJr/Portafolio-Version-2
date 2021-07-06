@@ -226,7 +226,6 @@ input + p {
   color: var(--Color-Error);
   text-decoration: none;
   text-align: center;
-  text-transform: lowercase;
   opacity: 0;
   height: 0;
 }
