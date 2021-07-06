@@ -969,11 +969,6 @@ footer .arriba:not(.github) {
   .contenedor_formulario_de_contacto {
     overflow-x: hidden;
   }
-  .contenedor_about_me {
-    display: -ms-grid;
-    display: grid;
-    place-content: center;
-  }
   .contenedor_about_me h1 {
     font-family: var(--Font-Secundaria);
     font-size: var(--SubSubtitulos);
