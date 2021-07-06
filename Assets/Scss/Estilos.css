@@ -187,10 +187,6 @@ nav.activa {
   position: sticky;
 }
 
-.mb-nav {
-  display: none;
-}
-
 .invalid-feedback {
   font-family: var(--Font-Secundaria);
   font-size: var(--SubSubtitulos);
@@ -956,13 +952,17 @@ footer .arriba:not(.github) {
 
 /*****************************************************************/
 @media only screen and (max-width: 600px) {
-  nav {
+  .navbar_escritorio {
     display: none;
+    visibility: hidden;
   }
   .percent,
   .fill {
     display: none;
     visibility: hidden;
+  }
+  .contenedor_saludo {
+    margin: 0;
   }
   .contenedor_saludo,
   .contenedor_about_me,
