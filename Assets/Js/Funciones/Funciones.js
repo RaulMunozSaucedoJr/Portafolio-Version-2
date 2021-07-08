@@ -1,1 +1,0 @@
-import{inputsUsuarios}from"/Assets/Js/Selectores/Selectores.js";export const verificarTamanos=()=>{for(var e,s=0;e=inputsUsuarios[s++];)e.value.length>=50&&swal({icon:"warning",title:"¡Atención!",text:"Ningún campo debe de tener más de 50 letras/carácteres/números",timer:3e3,closeOnClickOutside:!1,button:!1,closeOnEsc:!1})};
