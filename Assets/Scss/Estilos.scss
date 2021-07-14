@@ -67,7 +67,7 @@ input[type="tel"] {
     display: block;
     font-family: var(--Font-Primaria);
     font-size: var(--SubSubtitulos);
-    border: var(--General)solid.1em;
+    border: var(--General)solid .1em;
     color: var(--General);
     text-transform: lowercase;
     text-align: left;
@@ -172,7 +172,7 @@ input {
     width: 100%;
     box-sizing: border-box;
     border-radius: 0;
-    border: var(--General)solid.2em;
+    border: var(--General)solid .2em;
     outline: none !important;
 }
 
@@ -260,7 +260,7 @@ input.invalido+p {
     place-content: center;
     background-color: transparent;
     justify-content: center;
-    border: var(--General)solid.2em;
+    border: var(--General)solid .2em;
     border-left: transparent;
     border-top: transparent;
     border-bottom: transparent;
@@ -314,7 +314,7 @@ input.invalido+p {
             height: 100%;
             position: absolute;
             z-index: -1;
-            border: var(--General)solid.2em;
+            border: var(--General)solid .2em;
             transition: all .25s ease-out;
         }
 
@@ -353,7 +353,7 @@ input.invalido+p {
         &:hover {
             color: var(--Secundario);
             text-decoration: underline;
-            transition: ease-in.5s;
+            transition: ease-in .5s;
         }
     }
 }
@@ -365,7 +365,7 @@ input.invalido+p {
     place-content: center;
     background-color: transparent;
     justify-content: center;
-    border: var(--General)solid.2em;
+    border: var(--General)solid .2em;
     border-right: transparent;
     border-left: transparent;
     border-top: transparent;
@@ -615,7 +615,7 @@ input.invalido+p {
             height: auto;
             background-color: transparent;
             border-radius: 0;
-            border: var(--General)solid.2em;
+            border: var(--General)solid .2em;
 
             .card-img-top {
                 width: 100%;
@@ -879,7 +879,7 @@ footer {
                 height: 50%;
                 position: absolute;
                 z-index: -1;
-                border: var(--General)solid.2em;
+                border: var(--General)solid .2em;
                 transition: all .25s ease-out;
             }
 
@@ -1033,7 +1033,7 @@ footer {
     width: 50%;
     height: auto;
     background-color: var(--Background-Color);
-    border: var(--General)solid.2em;
+    border: var(--General)solid .2em;
     border-radius: 0;
 
     .swal-text {
